@@ -12,9 +12,11 @@
     },
     "devDependencies": {
         "prettier": "==3.8.2",
-        "vite": "==8.0.4"
+        "vite": "==8.0.8"
     },
     "dependencies": {
+        "arabic-persian-reshaper": "==1.0.1",
+        "bidi-js": "==1.0.3",
         "kaplay": "==3001.0.19"
     }
 }
