@@ -1,12 +1,13 @@
 import kaplay from "kaplay";
+import { screenWidth, screenHeight } from "./utils/constants.js";
 
 const k = kaplay({
-  width: 1280,
-  height: 720,
-  letterbox: true,
-  global: false,
-  debug: true,
-  debugKey: "f2",
+    width: screenWidth,
+    height: screenHeight,
+    letterbox: true,
+    global: false,
+    debug: true,
+    debugKey: "f2",
 });
 
 export default k;
