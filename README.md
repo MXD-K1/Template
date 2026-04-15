@@ -131,6 +131,9 @@ See [TODO.md](docs/TODO.md).
 - Facedonia
 - ArcaneAlchemist
 - tommyvr
+- AlphaPrime
+- Shrijita
+- Septa
 
 ---
 
