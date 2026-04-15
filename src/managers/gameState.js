@@ -2,6 +2,7 @@ export default function globalGameState() {
     let instance = null;
 
     function createInstance() {
+        let locale = "en"; // choices: "en", "ar", "es"
         let freezePlayer = false;
 
         return {
@@ -9,6 +10,10 @@ export default function globalGameState() {
                 freezePlayer = value;
             },
             getFreezePlayer: () => freezePlayer,
+            setLocale(value) {
+                locale = value;
+            },
+            getLocale: () => locale,
         };
     }
 
