@@ -2,5 +2,5 @@ game_id = "j97b8ah9x1de1y7kdh1pevpwhd84wz85"
 upload_dir = "."
 
 [custom]
-version = "1.0.0"
+version = "0.1.0"
 entrypoint = "index.html"
