@@ -60,7 +60,7 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 - **Runtime:** Node.js
 - **Bundler:** Vite
 - **Level Design:** Tiled
-- **Art:** ...
+- **Art:** Aesprite
 - **Sounds:** ...
 
 ---
@@ -127,9 +127,10 @@ See [TODO.md](docs/TODO.md).
 
 ## Team Members
 
-- Mohammed Al-Shguaa (MXD-K1)
--
--
+- MXD-K1
+- Facedonia
+- ArcaneAlchemist
+- tommyvr
 
 ---
 

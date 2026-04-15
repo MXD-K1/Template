@@ -6,6 +6,8 @@ export default function createWorld(k) {
     colorizeBG(k, 0, 0, 0);
     globalInput(k);
 
-    const hero = k.add(createHero(k, k.vec2(8, 8)));
+    const hero = k.add(createHero(k, k.vec2(320, 170)));
     moveHero(k, hero);
+
+    k.setCamScale(2);
 }

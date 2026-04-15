@@ -1,7 +1,16 @@
-import { screenWidth, screenHeight } from "./constants.js";
+import {
+    screenWidth,
+    screenHeight,
+    tileWidth,
+    tileHeight,
+} from "./constants.js";
 
 export function colorizeBG(k, r, g, b) {
     k.add([k.rect(screenWidth, screenHeight), k.color(r, g, b), k.fixed()]);
+}
+
+export function playAnimIfNotPlaying(gameObj, animName) {
+    if (gameObj.curAnim() !== animName) gameObj.play(animName);
 }
 
 export async function fetchMapData(mapPath) {
@@ -23,5 +32,11 @@ export function drawTiles(k, map, layer, tileHeight, tileWidth) {
         if (tile === 0) continue;
 
         // TODO: Add draw logic here
+
+        map.add([
+            k.sprite("assets", { frame: tile - 1 }), // kaplay starts from 0 while tiled start from 1
+            k.pos(tilePos),
+            k.offscreen(),
+        ]);
     }
 }

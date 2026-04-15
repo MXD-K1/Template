@@ -1,6 +1,5 @@
 import k from "./kaplayContext.js";
 import { SCENES } from "./utils/constants.js";
-import { globalInput } from "./utils/input.js";
 
 // TODO: Rename the project title and update `index.html` <title>.
 // TODO: Decide on a fixed resolution vs responsive scaling strategy.
@@ -11,13 +10,25 @@ import { globalInput } from "./utils/input.js";
 // TODO: Add global input bindings (pause, mute, screenshot, etc.).
 // TODO: Add a global UI layer for FPS, version, or debug info.
 
-function loadAssets() {
+async function loadAssets(k) {
     // Sprites
+    k.loadSprite("player", "./assets/sprites/player.png", {
+        sliceX: 7,
+        sliceY: 4,
+        anims: {
+            "player.left.move": { from: 0, to: 6, loop: true },
+            "player.down.move": { from: 7, to: 13, loop: true },
+            "player.right.move": { from: 14, to: 20, loop: true },
+            "player.up.move": { from: 21, to: 27, loop: true },
+        },
+    });
+
     // Sounds (SFX)
     // Fonts
 }
 
-function run(k) {
+async function run(k) {
+    await loadAssets(k);
     for (const scene in SCENES) {
         k.scene(scene, () => SCENES[scene](k));
     }
@@ -25,4 +36,4 @@ function run(k) {
     k.go("world");
 }
 
-run(k);
+await run(k);
