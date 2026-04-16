@@ -1,5 +1,6 @@
 import k from "./kaplayContext.js";
-import { SCENES } from "./utils/constants.js";
+import { dialogData, SCENES } from "./utils/constants.js";
+import { fetchData } from "./utils/utils.js";
 
 // TODO: Rename the project title and update `index.html` <title>.
 // TODO: Decide on a fixed resolution vs responsive scaling strategy.
@@ -38,6 +39,12 @@ async function loadAssets(k) {
 
     // Sounds (SFX)
     // Fonts
+    // Dialog Data
+    [dialogData.AR, dialogData.EN, dialogData.ES] = await Promise.all([
+        fetchData("./data/dialogs-ar.json"),
+        fetchData("./data/dialogs-en.json"),
+        fetchData("./data/dialogs-es.json"),
+    ]);
 }
 
 async function run(k) {

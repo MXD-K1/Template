@@ -3,6 +3,7 @@ import {
     screenHeight,
     LOCALES,
     COLORS,
+    dialogData,
 } from "../utils/constants.js";
 import { formatText } from "../utils/text.js";
 import { gameState } from "../managers/managers.js";
@@ -18,6 +19,7 @@ export function createDialogBox(k) {
 
 export function addText(k, text, dialogBox) {
     const locale = gameState.getLocale();
+    console.log(locale);
     const pos = k.vec2(20, 20);
     const textObj = k.text(formatText(text, locale));
     if (locale === LOCALES.AR) {
@@ -29,4 +31,10 @@ export function addText(k, text, dialogBox) {
         k.pos(pos),
         k.fixed(),
     ]);
+}
+
+export function getDialogText(npc, event) {
+    const locale = gameState.getLocale();
+    const data = dialogData[locale];
+    return data[npc][event];
 }
