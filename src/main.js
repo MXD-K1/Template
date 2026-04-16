@@ -52,7 +52,7 @@ export async function run(k) {
         k.scene(scene, () => SCENES[scene](k));
     }
 
-    k.go("world");
+    k.go("title");
 }
 
 await run(k);
