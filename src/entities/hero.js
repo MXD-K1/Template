@@ -21,26 +21,37 @@ export function moveHero(k, hero) {
 
     const moveVec = k.vec2(0, 0);
 
-    if (k.isKeyDown("left") || k.isKeyDown("a")) {
+    const left = k.isKeyDown("left") || k.isKeyDown("a");
+    const right = k.isKeyDown("right") || k.isKeyDown("d");
+    const down = k.isKeyDown("down") || k.isKeyDown("s");
+    const up = k.isKeyDown("up") || k.isKeyDown("w");
+
+    let dir = hero.direction;
+
+    if (left) {
       moveVec.x -= 1;
-      hero.direction = "left";
+      dir = "left";
     }
-    if (k.isKeyDown("right") || k.isKeyDown("d")) {
+    if (right) {
       moveVec.x += 1;
-      hero.direction = "right";
+      dir = "right";
     }
-    if (k.isKeyDown("down") || k.isKeyDown("s")) {
+    if (down) {
       moveVec.y += 1;
-      hero.direction = "down";
+      dir = "down";
     }
-    if (k.isKeyDown("up") || k.isKeyDown("w")) {
+    if (up) {
       moveVec.y -= 1;
-      hero.direction = "up";
+      dir = "up";
     }
+    if (down && left) dir = "down.left";
+    if (down && right) dir = "down.right";
+
+    hero.direction = dir;
 
     const len = moveVec.len();
     if (len > 0) {
-        console.log(`Moving`, moveVec);
+        // Normalize vector so that diagonal movement isn't faster
         moveVec.x = (moveVec.x / len) * hero.speed;
         moveVec.y = (moveVec.y / len) * hero.speed;
         hero.move(moveVec.x * k.dt(), moveVec.y * k.dt());
