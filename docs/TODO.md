@@ -30,5 +30,6 @@
 - [ ] Toggle hitboxes, physics, or FPS overlays in debug shortcuts.
 - [ ] Add a hot-reload-safe debug UI.
 - [ ] Bind pause, and fullscreen keys.
-- [ ] Add gamepad mappings.
+- [ ] Add gamepad mappings. (partial)
 - [ ] Add proper key mapping
+- [ ] Wrap quests that exceeds the panel height

@@ -12,8 +12,8 @@ export function formatArabicText(text) {
     );
 }
 
-export function formatText(text, lang) {
-    if (lang === "AR") {
+export function formatText(text, locale) {
+    if (locale === "AR") {
         return formatArabicText(text);
     } else {
         return text;

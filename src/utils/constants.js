@@ -23,6 +23,7 @@ export const COLORS = Object.freeze({
     WHITE: [255, 255, 255],
     BLACK: [0, 0, 0],
     BLUE: [41, 41, 255],
+    BROWN: [165, 42, 42],
 });
 
 export const dialogData = {
