@@ -31,4 +31,4 @@
 - [ ] Add a hot-reload-safe debug UI.
 - [ ] Bind pause, and fullscreen keys.
 - [ ] Add gamepad mappings.
-- [ ] Fix player movement.
+- [ ] Add proper key mapping
