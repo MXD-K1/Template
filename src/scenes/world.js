@@ -11,10 +11,6 @@ export default function createWorld(k) {
     const hero = k.add(createHero(k, k.vec2(320, 170)));
     moveHero(k, hero);
 
-    const dialog = createDialogBox(k);
-    const text = getDialogText("npc_1", "test");
-    addText(k, text, dialog);
-
     k.setCamPos(hero.worldPos());
     k.setCamScale(1.5);
 }
