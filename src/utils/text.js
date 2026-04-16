@@ -13,11 +13,9 @@ export function formatArabicText(text) {
 }
 
 export function formatText(text, lang) {
-    if (lang === "ar") {
+    if (lang === "AR") {
         return formatArabicText(text);
     } else {
         return text;
     }
 }
-
-export function getDialogText(npc, event) {}

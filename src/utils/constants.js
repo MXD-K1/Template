@@ -14,9 +14,9 @@ export const tileWidth = 32;
 export const speedFactor = 1000;
 
 export const LOCALES = Object.freeze({
-    AR: "ar",
-    EN: "en",
-    ES: "es",
+    AR: "AR",
+    EN: "EN",
+    ES: "ES",
 });
 
 export const COLORS = Object.freeze({
@@ -24,5 +24,11 @@ export const COLORS = Object.freeze({
     BLACK: [0, 0, 0],
     BLUE: [41, 41, 255],
 });
+
+export const dialogData = {
+    AR: null,
+    EN: null,
+    ES: null,
+};
 
 // TODO: Add other shared constants (colors, layers, z-index, speeds).
