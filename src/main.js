@@ -12,12 +12,12 @@ import { fetchData } from "./utils/utils.js";
 
 async function loadAssets(k) {
     // Sprites
-    k.loadSprite("assets", "./assets/sprites/terrain/terrain.png", {
+    k.loadSprite("assets", "assets/sprites/terrain/terrain.png", {
         sliceX: 32,
         sliceY: 33,
     });
 
-    k.loadSprite("player", "./assets/sprites/player.png", {
+    k.loadSprite("player", "assets/sprites/player.png", {
         sliceX: 7,
         sliceY: 9,
         anims: {
@@ -45,9 +45,9 @@ async function loadAssets(k) {
     // Fonts
     // Dialog Data
     [dialogData.AR, dialogData.EN, dialogData.ES] = await Promise.all([
-        fetchData("./data/dialogs-ar.json"),
-        fetchData("./data/dialogs-en.json"),
-        fetchData("./data/dialogs-es.json"),
+        fetchData("data/dialogs-ar.json"),
+        fetchData("data/dialogs-en.json"),
+        fetchData("data/dialogs-es.json"),
     ]);
 }
 

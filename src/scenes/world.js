@@ -8,7 +8,7 @@ export default async function createWorld(k) {
     globalInput(k);
 
     const map = k.add([k.pos(0, 0)]);
-    const mapData = await fetchData("./assets/maps/map.json"); // will be moved later
+    const mapData = await fetchData("assets/maps/map.json"); // will be moved later
 
     for (const layer of mapData.layers) {
         drawTiles(k, map, layer, tileHeight, tileWidth);
