@@ -9,7 +9,8 @@
         "build": "vite build",
         "preview": "vite preview",
         "w_dev": "wavedash dev",
-        "deploy": "wavedash build push"
+        "h_deploy": "butler build dummy_tests/dist.zip mxd-k1/naturonics --dry-run",
+        "w_deploy": "wavedash build push"
     },
     "devDependencies": {
         "prettier": "==3.8.2",
