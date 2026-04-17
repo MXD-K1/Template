@@ -22,20 +22,21 @@ async function loadAssets(k) {
         sliceY: 9,
         anims: {
             "player.left.idle": 0,
-            "player.up.idle": 1,
-            "player.down.idle": 2,
-            "player.right.idle": 3,
+            "player.right.idle": 1,
+            "player.up.idle": 2,
+            "player.down.idle": 3,
             "player.down.left.idle": 0,
-            "player.down.right.idle": 3,
+            "player.down.right.idle": 1,
+            "player.up.left.idle": 0,
+            "player.up.right.idle": 1,
 
             "player.left.move": { from: 7, to: 13, loop: true },
             "player.down.move": { from: 14, to: 20, loop: true },
             "player.right.move": { from: 21, to: 27, loop: true },
             "player.up.move": { from: 28, to: 34, loop: true },
 
-            "player.left.jump": { from: 35, to: 41, loop: false },
-            "player.right.jump": { from: 42, to: 48, loop: false },
-
+            "player.up.left.move": { from: 35, to: 41, loop: false },
+            "player.up.right.move": { from: 42, to: 48, loop: false },
             "player.down.left.move": { from: 49, to: 55, loop: true },
             "player.down.right.move": { from: 56, to: 62, loop: true },
         },
@@ -57,7 +58,7 @@ export async function run(k) {
         k.scene(scene, () => SCENES[scene](k));
     }
 
-    k.go("world");
+    k.go("title");
 }
 
 await run(k);
