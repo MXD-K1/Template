@@ -40,5 +40,3 @@ export function drawTiles(k, map, layer, tileHeight, tileWidth) {
         ]);
     }
 }
-
-

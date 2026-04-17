@@ -1,5 +1,3 @@
-
-
 export function createButton(k, label, y, onPress) {
     const button = k.add([
         k.rect(220, 52),
