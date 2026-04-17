@@ -50,8 +50,11 @@ export function moveHero(k, hero) {
             moveVec.y -= 1;
             dir = "up";
         }
+
         if (down && left) dir = "down.left";
         if (down && right) dir = "down.right";
+        if (up && left) dir = "up.left";
+        if (up && right) dir = "up.right";
 
         hero.direction = dir;
 
