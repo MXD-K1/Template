@@ -40,3 +40,9 @@ export function drawTiles(k, map, layer, tileHeight, tileWidth) {
         ]);
     }
 }
+
+export function isMobile() {
+    if (navigator.maxTouchPoints > 1) {
+        return true;
+    }
+}

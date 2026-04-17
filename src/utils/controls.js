@@ -1,3 +1,5 @@
+import { isMobile } from "./utils.js";
+
 const TOUCH_CONTROLS = {}; // when we add mobile support
 
 const KEYBOARD_CONTROLS = {
@@ -34,5 +36,6 @@ export function getKeybinding(k, command) {
 
 function detectControllerType(k) {
     if (k.getGamepads().length > 0) return "gamepad";
-    // TODO: Add Mobile detection
+    if (isMobile()) return "touch";
+    // TODO: complete the function
 }
