@@ -1,4 +1,4 @@
-import { createButton } from "../utils/utils";
+import { createButton } from "../ui/button";
 
 export default function titleScene(k) {
     k.add([
