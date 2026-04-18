@@ -1,4 +1,4 @@
-import { createButton } from "../ui/button.js";
+import { createButton } from "../ui/components/button.js";
 import { colorizeBG } from "../utils/utils.js";
 
 export default function optionsScene(k) {
