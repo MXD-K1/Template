@@ -43,6 +43,7 @@ async function loadAssets(k) {
     });
 
     // Sounds (SFX)
+    // k.loadMusic("bg_music", "assets/sound/ambience_naturonics.mp3");
     // Fonts
     // k.loadFont("jungle", "assets/fonts/font.png", 10, 10);
     // Dialog Data
