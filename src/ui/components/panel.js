@@ -3,11 +3,10 @@ import { createUIComponent } from "../UIComponent.js";
 
 let panel = null;
 
-export function createPanel(k) {
+export function createPanel(k, opts) {
     const components = [
         k.rect(k.width() * 0.8, k.height() * 0.8),
-        k.pos(k.center()),
-        k.anchor("center"),
+        k.pos(0, 0),
         k.outline(2, COLORS.BLACK),
         k.fixed(),
         {
@@ -17,7 +16,16 @@ export function createPanel(k) {
         },
     ];
 
-    panel = createUIComponent(k, components);
+    if (opts.center) {
+        components.push(k.pos(k.center()));
+        components.push(k.anchor("center"));
+    }
+
+    panel = createUIComponent(k, components, opts);
+}
+
+export function getPanel() {
+    return panel;
 }
 
 export function addSideBar() {}

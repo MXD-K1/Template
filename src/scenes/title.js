@@ -10,6 +10,10 @@ export default function titleScene(k) {
         k.pos(k.width() / 2, 40),
     ]);
 
-    createButton(k, "Start Game", k.height() / 2, () => k.go("world"));
-    createButton(k, "Options", k.height() / 2 + 80, () => k.go("option"));
+    createButton(k, "Start Game", () => k.go("world"), {
+        pos: k.vec2(k.width() / 2, k.height() / 2),
+    });
+    createButton(k, "Options", () => k.go("option"), {
+        pos: k.vec2(k.width() / 2, k.height() / 2 + 80),
+    });
 }
