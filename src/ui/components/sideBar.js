@@ -1,35 +1,30 @@
 import { COLORS } from "../../utils/constants.js";
 import { createUIComponent } from "../UIComponent.js";
 
-export function createSideBar(k, opts = {}, parent) {
+export function createSideBar(k, opts = {}, parent = null) {
     const components = [
-        k.rect(k.width * 0.2, k.height * 0.8),
+        k.rect(k.width() * 0.2, k.height() * 0.8),
         k.outline(2),
-        k.color(COLORS.BLUE),
+        k.color(COLORS.WHITE),
         k.pos(0, 0),
-        // k.anchor("center"),
+        k.anchor("topleft"),
         {
             tabs: [],
         },
     ];
 
-    const sideBar = createUIComponent(k, components, opts);
-
-    if (parent) {
-        sideBar.pos.x = 500;
-        sideBar.pos.y = 500;
-    }
-
-    return sideBar;
+    return createUIComponent(k, components, opts, parent);
 }
 
 export function addTab(k, sidebar, tab) {
     sidebar.tabs.push(tab);
+    updateSideBar(k, sidebar);
 }
 
 export function updateSideBar(k, sidebar) {
     for (const [index, tab] of sidebar.tabs.entries()) {
-        tab.pos.x = sidebar.pos.x;
-        tab.pos.y = sidebar.pos.y + tab.width * index;
+        tab.width = sidebar.width;
+        tab.pos.x += tab.width / 2;
+        tab.pos.y += tab.height / 2; //+ tab.width * index;
     }
 }

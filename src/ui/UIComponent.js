@@ -3,10 +3,17 @@ export function createUIComponent(k, components, opts = {}, parent = null) {
     if (parent) {
         element = parent.add(components);
         if (parent.anchor === "center") {
-            if (opts.center) {
-                // element.pos.x = -parent.width * 0.5;
-                // element.pos.y = -parent.height * 0.5;
+            opts.align = opts.align ?? "center";
+            if (opts.align === "left") {
+                element.pos.x = -parent.width * 0.5;
+                element.pos.y = -parent.height * 0.5;
+            } else if (opts.align === "right") {
+                element.pos.x = parent.width * 0.5;
+                element.pos.y = parent.height * 0.5;
+            } else if (opts.align === "xleft") {
+                element.pos.x = -parent.width * 0.5;
             }
+
             if (opts.pos) {
                 element.pos.x += opts.pos.x ?? 0;
                 element.pos.y += opts.pos.y ?? 0;

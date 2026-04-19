@@ -24,7 +24,14 @@ export function createButton(k, text, onPress, opts = {}, parent = null) {
     const button = createUIComponent(k, components, opts, parent);
     button.onClick(onPress);
 
-    createLabel(k, text, { center: true }, button);
+    opts.centerText = opts.centerText ?? true;
+    opts.alignText = opts.align ?? "center";
+    createLabel(
+        k,
+        text,
+        { align: opts.alignText, center: opts.centerText },
+        button,
+    );
 
     return button;
 }
