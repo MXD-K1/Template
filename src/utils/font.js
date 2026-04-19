@@ -3,6 +3,7 @@ const FONTS = {
     dialog: { size: 16, width: 500 },
     notification: { font: "sinko", size: 20 },
     label: { font: "sinko", size: 20 },
+    big_label: { font: "sinko", size: 48 },
     // fill in the rest when needed
 };
 

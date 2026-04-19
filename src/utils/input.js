@@ -1,5 +1,5 @@
 import { gameState } from "../managers/stateManagers.js";
-import { createPauseMenu, destroyPauseMenu } from "../ui/pauseMenu.js";
+import { togglePauseMenuState } from "../ui/pauseMenu.js";
 
 export function globalInput(k) {
     // TODO: Bind pause, and fullscreen keys.
@@ -8,10 +8,6 @@ export function globalInput(k) {
     k.onKeyPress("p", () => {
         current = !current;
         gameState.setFreezePlayer(current);
-        if (current) {
-            createPauseMenu(k);
-        } else {
-            destroyPauseMenu();
-        }
+        togglePauseMenuState(k);
     });
 }

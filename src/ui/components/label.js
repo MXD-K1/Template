@@ -5,8 +5,8 @@ import { getFont } from "../../utils/font.js";
 export function createLabel(k, text, opts = {}, parent = null) {
     const components = [
         k.text(text, { ...(opts.font ?? getFont("label")) }),
-        k.color(opts.color ?? COLORS.BLACK),
         k.pos(0, 0),
+        k.color(opts.color ?? COLORS.BLACK),
         k.anchor("center"),
         k.fixed(),
     ];

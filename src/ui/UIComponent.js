@@ -12,6 +12,8 @@ export function createUIComponent(k, components, opts = {}, parent = null) {
                 element.pos.y = parent.height * 0.5;
             } else if (opts.align === "xleft") {
                 element.pos.x = -parent.width * 0.5;
+            } else if (opts.align === "yleft") {
+                element.pos.y = -parent.height * 0.5;
             }
 
             if (opts.pos) {
