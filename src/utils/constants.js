@@ -15,7 +15,7 @@ export const screenHeight = 720;
 export const tileHeight = 32;
 export const tileWidth = 32;
 
-export const speedFactor = 1000;
+export const speedFactor = 35;
 
 export const LOCALES = Object.freeze({
     AR: "AR",
