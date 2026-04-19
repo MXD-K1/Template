@@ -1,12 +1,20 @@
 import { COLORS } from "../../utils/constants.js";
 import { createUIComponent } from "../UIComponent.js";
+import { getFont } from "../../utils/font.js";
 
 export function createLabel(k, text, opts = {}, parent = null) {
     const components = [
-        k.text(text, { font: getFont(opts.font ?? "label") }),
+        k.text(text, { ...(opts.font ?? getFont("label")) }),
         k.color(opts.color ?? COLORS.BLACK),
+        k.pos(0, 0),
+        k.anchor("center"),
         k.fixed(),
     ];
 
+    if (opts.center) {
+        if (!parent) {
+            components.push(k.pos(k.center()));
+        }
+    }
     return createUIComponent(k, components, opts, parent);
 }
