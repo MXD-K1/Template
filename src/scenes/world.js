@@ -1,7 +1,7 @@
 import { colorizeBG, drawMap, fetchData } from "../utils/utils.js";
 import { createHero, moveHero } from "../entities/hero.js";
 import { globalInput } from "../utils/input.js";
-import { COLORS, tileHeight, tileWidth } from "../utils/constants.js";
+import { COLORS } from "../utils/constants.js";
 import { worldCamera } from "../systems/camera.js";
 //import { createPanel } from "../ui/components/panel.js";
 
