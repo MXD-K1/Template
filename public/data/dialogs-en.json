@@ -1,1 +1,19 @@
-{}
+{
+    "menu_start": "Start Scavenging",
+    "menu_settings": "Calibration",
+    "menu_quit": "Terminate",
+    "ui_loading": "Syncing Systems...",
+    "ui_save_game": "Progress Archived",
+    "ui_quest_update": "New Transmission",
+    "ui_interact_e": "[E] Interact",
+    "ui_energy_low": "WARNING: Bio-Energy Low",
+    "ui_tank_full": "Tank Capacity Reached",
+    "ui_gate_locked": "Security Override Required",
+    "ui_combat_ready": "Combat Mode Active",
+    "ui_death_msg": "Connection Lost...",
+    "ui_respawn": "Reinitializing...",
+    "ui_quest_title": "Current Objective",
+    "ui_interact": "[E] Interact",
+    "ui_inventory_full": "Tank is full!",
+    "ui_goal_reached": "Path Unlocked"
+}

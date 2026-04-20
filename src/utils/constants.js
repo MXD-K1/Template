@@ -23,6 +23,8 @@ export const LOCALES = Object.freeze({
     AR: "AR",
     EN: "EN",
     ES: "ES",
+    ID: "ID",
+    HI: "HI",
 });
 
 export const COLORS = Object.freeze({
@@ -36,6 +38,8 @@ export const dialogData = {
     AR: null,
     EN: null,
     ES: null,
+    ID: null,
+    HI: null,
 };
 
 // TODO: Add other shared constants (colors, layers, z-index, speeds).

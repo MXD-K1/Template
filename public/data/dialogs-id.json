@@ -1,0 +1,19 @@
+{
+    "menu_start": "Mulai Petualangan",
+    "menu_settings": "Kalibrasi",
+    "menu_quit": "Keluar",
+    "ui_loading": "Menyinkronkan Sistem...",
+    "ui_save_game": "Progres Disimpan",
+    "ui_quest_update": "Transmisi Baru",
+    "ui_interact_e": "[E] Interaksi",
+    "ui_energy_low": "PERINGATAN: Energi Rendah",
+    "ui_tank_full": "Kapasitas Tangki Penuh",
+    "ui_gate_locked": "Butuh Akses Keamanan",
+    "ui_combat_ready": "Mode Tempur Aktif",
+    "ui_death_msg": "Koneksi Terputus...",
+    "ui_respawn": "Inisialisasi Ulang...",
+    "ui_quest_title": "Tugas Saat Ini",
+    "ui_interact": "[E] Interaksi",
+    "ui_inventory_full": "Tangki penuh!",
+    "ui_goal_reached": "Jalan Terbuka"
+}

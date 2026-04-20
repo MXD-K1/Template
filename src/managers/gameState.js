@@ -2,7 +2,7 @@ export default function globalGameState() {
     let instance = null;
 
     function createInstance() {
-        let locale = "EN"; // choices: "EN", "AR", "ES"
+        let locale = "ID"; // choices: "EN", "AR", "ES", "ID", "HI"
         let freezePlayer = false;
 
         return {

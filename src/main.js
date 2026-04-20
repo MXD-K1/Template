@@ -47,10 +47,18 @@ async function loadAssets(k) {
     // Fonts
     // k.loadFont("jungle", "assets/fonts/font.png", 10, 10);
     // Dialog Data
-    [dialogData.AR, dialogData.EN, dialogData.ES] = await Promise.all([
+    [
+        dialogData.AR,
+        dialogData.EN,
+        dialogData.ES,
+        dialogData.ID,
+        dialogData.HI,
+    ] = await Promise.all([
         fetchData("data/dialogs-ar.json"),
         fetchData("data/dialogs-en.json"),
         fetchData("data/dialogs-es.json"),
+        fetchData("data/dialogs-id.json"),
+        fetchData("data/dialogs-hi.json"),
     ]);
 }
 
