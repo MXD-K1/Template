@@ -18,7 +18,7 @@ export function createPauseMenu(k) {
 
     createLabel(
         k,
-        "PAUSED",
+        getText("menu_paused"),
         {
             pos: k.vec2(0, -pauseMenu.height / 2 + 40),
             font: getFont("big_label"),
@@ -28,7 +28,7 @@ export function createPauseMenu(k) {
 
     createButton(
         k,
-        "RESUME",
+        getText("menu_resume"),
         () => {
             togglePauseMenuState(k);
         },
@@ -49,7 +49,7 @@ export function createPauseMenu(k) {
 
     createButton(
         k,
-        "EXIT TO MENU",
+        getText("menu_exit_to_menu"),
         () => {
             // save
             k.go("title");

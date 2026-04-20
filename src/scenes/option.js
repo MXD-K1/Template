@@ -11,7 +11,7 @@ export default function optionsScene(k) {
         k.pos(k.width() / 2, 50),
     ]);
 
-    createButton(k, "Back", () => k.go("title"), {
+    createButton(k, getText("menu_back"), () => k.go("title"), {
         pos: k.vec2(k.width() / 2, k.height() - 100),
     });
 }

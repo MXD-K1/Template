@@ -10,6 +10,9 @@ export const SCENES = {
     option: optionsScene,
 };
 
+export const GAME_NAME = "Naturonics";
+export const version = "0.1.18";
+
 export const screenWidth = 1280;
 export const screenHeight = 720;
 export const tileHeight = 32;

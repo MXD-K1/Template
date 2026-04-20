@@ -16,5 +16,12 @@ export function createLabel(k, text, opts = {}, parent = null) {
             components.push(k.pos(k.center()));
         }
     }
-    return createUIComponent(k, components, opts, parent);
+
+    const label = createUIComponent(k, components, opts, parent);
+
+    if (opts.pos) {
+        label.pos = opts.pos;
+    }
+
+    return label;
 }

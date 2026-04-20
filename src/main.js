@@ -54,11 +54,11 @@ async function loadAssets(k) {
         dialogData.ID,
         dialogData.HI,
     ] = await Promise.all([
-        fetchData("data/dialogs-ar.json"),
-        fetchData("data/dialogs-en.json"),
-        fetchData("data/dialogs-es.json"),
-        fetchData("data/dialogs-id.json"),
-        fetchData("data/dialogs-hi.json"),
+        fetchData("data/locales/ar.json"),
+        fetchData("data/locales/en.json"),
+        fetchData("data/locales/es.json"),
+        fetchData("data/locales/id.json"),
+        fetchData("data/locales/hi.json"),
     ]);
 }
 
