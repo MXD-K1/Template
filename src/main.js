@@ -41,6 +41,11 @@ async function loadAssets(k) {
             "hero.up.right.move": { from: 42, to: 48, loop: true },
             "hero.down.left.move": { from: 49, to: 55, loop: true },
             "hero.down.right.move": { from: 56, to: 62, loop: true },
+
+            // "hero.left.attack"
+            // "hero.right.attack"
+            // "hero.up.attack"
+            // "hero.down.attack"
         },
     });
 

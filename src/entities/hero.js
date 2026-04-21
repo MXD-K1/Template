@@ -7,9 +7,10 @@ export function createHero(k, pos) {
         ...createEntity(k, pos),
         k.sprite("hero", { anim: "hero.down.move" }),
         k.area({ shape: new k.Rect(k.vec2(8, 40), 16, 16) }),
-        // k.health(),
+        k.health(10),
         "hero",
         {
+            damage: 2,
             direction: "down",
         },
     ];
