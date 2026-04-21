@@ -18,7 +18,7 @@ export function createPauseMenu(k) {
 
     createLabel(
         k,
-        getText("menu_paused"),
+        getText("menu_pause"),
         {
             pos: k.vec2(0, -pauseMenu.height / 2 + 40),
             font: getFont("big_label"),
@@ -49,7 +49,7 @@ export function createPauseMenu(k) {
 
     createButton(
         k,
-        getText("menu_exit_to_menu"),
+        getText("menu_exit_menu"),
         () => {
             // save
             gameState.goToScene(k, "title");
