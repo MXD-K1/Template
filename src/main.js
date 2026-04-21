@@ -1,11 +1,13 @@
 import k from "./kaplayContext.js";
 import { dialogData, SCENES } from "./utils/constants.js";
 import { fetchData } from "./utils/utils.js";
+import {
+    getWavedash,
+    initWavedash,
+    updateLoadingProgress,
+} from "./wavedash.js";
 
-// TODO: Decide on a responsive scaling strategy.
 // TODO: Configure gravity once platforming or physics are added.
-
-// TODO: Add a real asset loading pipeline (sprites, fonts, audio).
 
 // TODO: Add global input bindings (pause, mute, screenshot, etc.).
 // TODO: Add a global UI layer for FPS, version, or debug info.
@@ -63,7 +65,12 @@ async function loadAssets(k) {
 }
 
 export async function run(k) {
+    await getWavedash();
+    updateLoadingProgress(0.4);
     await loadAssets(k);
+    updateLoadingProgress(1);
+    initWavedash(k);
+
     for (const scene in SCENES) {
         k.scene(scene, () => SCENES[scene](k));
     }
