@@ -16,5 +16,7 @@ export function updateLoadingProgress(progress) {
 }
 
 export function initWavedash(k) {
-    WavedashJS.init({ debug: k.debug });
+    if (useWavedash) {
+        WavedashJS.init({ debug: k.debug });
+    }
 }
