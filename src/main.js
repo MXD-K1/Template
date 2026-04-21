@@ -6,6 +6,8 @@ import {
     initWavedash,
     updateLoadingProgress,
 } from "./wavedash.js";
+import { getPlayer } from "./systems/player.js";
+import { gameState } from "./managers/stateManagers.js";
 
 // TODO: Configure gravity once platforming or physics are added.
 
@@ -77,6 +79,8 @@ export async function run(k) {
     await loadAssets(k);
     updateLoadingProgress(1);
     initWavedash(k);
+
+    gameState.setPlayer(getPlayer());
 
     for (const scene in SCENES) {
         k.scene(scene, () => SCENES[scene](k));
