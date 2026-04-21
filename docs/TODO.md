@@ -1,9 +1,9 @@
 # TODO
 - [x] Milestone 0: Decide game concept and tone.
 - [x] Milestone 0: Define target resolution and aspect ratio. (16:9)
-- [ ] Milestone 0: Decide a responsive scaling strategy.
-- [ ] Milestone 1: Add basic scene flow.
-- [ ] Milestone 1: Add input prompts and a start button.
+- [x] Milestone 0: Decide a responsive scaling strategy.
+- [x] Milestone 1: Add basic scene flow.
+- [x] Milestone 1: Add input prompts and a start button.
 - [ ] Milestone 1: Create a minimal UI system (title, buttons, overlays).
 - [ ] Milestone 1: Add a placeholder soundtrack and SFX stubs.
 - [ ] Milestone 2: Implement the core mechanic prototype.
@@ -13,7 +13,7 @@
 - [ ] Milestone 3: Add accessibility toggles (volume, screen effects).
 - [ ] Milestone 3: Add build/deploy checklist.
 - [x] Rename the project title and update `index.html` <title>.
-- [ ] Decide on a fixed resolution vs responsive scaling strategy. (partial)
+- [x] Decide on a fixed resolution vs responsive scaling strategy.
 - [ ] Configure gravity once platforming or physics are added.
 - [ ] Add a real asset loading pipeline (sprites, fonts, audio).
 - [ ] Add global input bindings (pause, mute, screenshot, etc.). (partial)

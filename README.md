@@ -48,9 +48,10 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 | `A / ←` | Move Left  |
 | `D / →` | Move Right |
 | `S / ↓` | Move Down  |
-| `Space` | Attack     |
 | `p`     | Pause      |
+| `e`     | Interact   |
 
+<!--| `Space` | Attack     |-->
 ---
 
 ## Tech Stack

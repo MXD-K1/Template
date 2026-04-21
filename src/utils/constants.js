@@ -1,3 +1,5 @@
+import pkg_metadata from "../../package.json";
+
 import createWorld from "../scenes/world.js";
 import loadScene from "../scenes/load.js";
 import titleScene from "../scenes/title.js";
@@ -10,17 +12,24 @@ export const SCENES = {
     option: optionsScene,
 };
 
+export const GAME_NAME = "Naturonics";
+export const version = pkg_metadata.version;
+
 export const screenWidth = 1280;
 export const screenHeight = 720;
 export const tileHeight = 32;
 export const tileWidth = 32;
 
-export const speedFactor = 1000;
+export const camScale = 1.5;
+
+export const speedFactor = 35;
 
 export const LOCALES = Object.freeze({
     AR: "AR",
     EN: "EN",
     ES: "ES",
+    ID: "ID",
+    HI: "HI",
 });
 
 export const COLORS = Object.freeze({
@@ -34,6 +43,8 @@ export const dialogData = {
     AR: null,
     EN: null,
     ES: null,
+    ID: null,
+    HI: null,
 };
 
 export const ATTACK_STATES = Object.freeze({

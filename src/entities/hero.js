@@ -58,7 +58,7 @@ export function moveHero(k, hero) {
             // Normalize vector so that diagonal movement isn't faster
             moveVec.x = (moveVec.x / len) * hero.speed;
             moveVec.y = (moveVec.y / len) * hero.speed;
-            hero.move(moveVec.x * k.dt(), moveVec.y * k.dt());
+            hero.move(moveVec.x, moveVec.y);
 
             playAnimIfNotPlaying(hero, `hero.${hero.direction}.move`);
         } else {

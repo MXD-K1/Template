@@ -1,11 +1,13 @@
 import k from "./kaplayContext.js";
 import { dialogData, SCENES } from "./utils/constants.js";
 import { fetchData } from "./utils/utils.js";
+import {
+    getWavedash,
+    initWavedash,
+    updateLoadingProgress,
+} from "./wavedash.js";
 
-// TODO: Decide on a responsive scaling strategy.
 // TODO: Configure gravity once platforming or physics are added.
-
-// TODO: Add a real asset loading pipeline (sprites, fonts, audio).
 
 // TODO: Add global input bindings (pause, mute, screenshot, etc.).
 // TODO: Add a global UI layer for FPS, version, or debug info.
@@ -48,19 +50,33 @@ async function loadAssets(k) {
     });
 
     // Sounds (SFX)
-    // k.loadMusic("bg_music", "assets/sound/ambience_naturonics.mp3");
+    k.loadMusic("bg_music", "assets/sound/ambience_naturonics.mp3");
     // Fonts
+    k.loadFont("l", "./assets/fonts/MessingLettern.ttf");
     // k.loadFont("jungle", "assets/fonts/font.png", 10, 10);
     // Dialog Data
-    [dialogData.AR, dialogData.EN, dialogData.ES] = await Promise.all([
-        fetchData("data/dialogs-ar.json"),
-        fetchData("data/dialogs-en.json"),
-        fetchData("data/dialogs-es.json"),
+    [
+        dialogData.AR,
+        dialogData.EN,
+        dialogData.ES,
+        dialogData.ID,
+        dialogData.HI,
+    ] = await Promise.all([
+        fetchData("data/locales/ar.json"),
+        fetchData("data/locales/en.json"),
+        fetchData("data/locales/es.json"),
+        fetchData("data/locales/id.json"),
+        fetchData("data/locales/hi.json"),
     ]);
 }
 
 export async function run(k) {
+    await getWavedash();
+    updateLoadingProgress(0.4);
     await loadAssets(k);
+    updateLoadingProgress(1);
+    initWavedash(k);
+
     for (const scene in SCENES) {
         k.scene(scene, () => SCENES[scene](k));
     }

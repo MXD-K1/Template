@@ -8,7 +8,7 @@ import { formatText } from "../utils/text.js";
 import { gameState } from "../managers/stateManagers.js";
 
 let curQuestNb = 1;
-const quest = [];
+const quests = [];
 
 export function createQuestsPanel(k) {
     return k.add([
@@ -64,14 +64,14 @@ export function addQuest(k, questPanel, questName, questDetails) {
     questBar.add([k.text(questName, { size: 30 }), k.pos(namePos)]);
     questBar.add([k.text(questDetails, { size: 22 }), k.pos(detailsPos)]);
     //questPanel.add([k.area({ shape: new k.Rect(questBar.pos, 3, 3) })]);
-    quest.push(questBar);
+    quests.push(questBar);
 }
 
 export function removeQuest(k, questName) {
     const locale = gameState.getLocale();
 
     questName = formatText(questName, locale);
-    for (const quest of quest) {
+    for (const quest of quests) {
         if (quest.qName === questName) {
             quest.destroy();
             quest.splice(quest.indexOf(quest), 1);
@@ -84,7 +84,7 @@ export function updateQuests(k) {
     // Needs to be called each time removeQuest is called
     const offset = k.vec2(20, 20);
     curQuestNb = 1;
-    for (const quest of quest) {
+    for (const quest of quests) {
         quest.pos.x = -quest.qParent.width * 0.5 + offset.x;
         quest.pos.y =
             -quest.qParent.height * 0.5 +

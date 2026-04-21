@@ -1,7 +1,6 @@
-import { tileHeight, tileWidth } from "../utils/constants.js";
+import { tileHeight, tileWidth, camScale } from "../utils/constants.js";
 
 export function worldCamera(k, mapData, person) {
-    const camScale = 1.5;
     k.setCamScale(camScale);
 
     const visibleWidth = k.width() / camScale;

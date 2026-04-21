@@ -10,6 +10,7 @@ dummy_tests/
 
 # compiled output
 /dist
+/naturonics-build
 /tmp
 /out-tsc
 
