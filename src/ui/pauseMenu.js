@@ -2,7 +2,7 @@ import { COLORS, screenHeight, screenWidth } from "../utils/constants.js";
 import { createLabel } from "./components/label.js";
 import { getFont } from "../utils/font.js";
 import { createButton } from "./components/button.js";
-import { getText } from "../managers/stateManagers.js";
+import { gameState, getText } from "../managers/stateManagers.js";
 
 let pauseMenu = null;
 
@@ -41,7 +41,7 @@ export function createPauseMenu(k) {
         getText("menu_settings"),
         () => {
             // save
-            k.go("option");
+            gameState.goToScene(k, "option");
         },
         { pos: k.vec2(0, 0) },
         pauseMenu,
@@ -52,7 +52,7 @@ export function createPauseMenu(k) {
         getText("menu_exit_to_menu"),
         () => {
             // save
-            k.go("title");
+            gameState.goToScene(k, "title");
         },
         { pos: k.vec2(0, 30) },
         pauseMenu,

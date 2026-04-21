@@ -1,6 +1,6 @@
 import { createButton } from "../ui/components/button.js";
 import { colorizeBG } from "../utils/utils.js";
-import { getText } from "../managers/stateManagers.js";
+import { gameState, getText } from "../managers/stateManagers.js";
 import { COLORS, GAME_NAME, version } from "../utils/constants.js";
 import { createLabel } from "../ui/components/label.js";
 
@@ -13,12 +13,22 @@ export default function titleScene(k) {
         k.pos(k.width() / 2, 40),
     ]);
 
-    createButton(k, getText("menu_start"), () => k.go("world"), {
-        pos: k.vec2(k.width() / 2, k.height() / 2),
-    });
-    createButton(k, getText("menu_settings"), () => k.go("option"), {
-        pos: k.vec2(k.width() / 2, k.height() / 2 + 80),
-    });
+    createButton(
+        k,
+        getText("menu_start"),
+        () => gameState.goToScene(k, "world"),
+        {
+            pos: k.vec2(k.width() / 2, k.height() / 2),
+        },
+    );
+    createButton(
+        k,
+        getText("menu_settings"),
+        () => gameState.goToScene(k, "option"),
+        {
+            pos: k.vec2(k.width() / 2, k.height() / 2 + 80),
+        },
+    );
 
     createLabel(k, version, {
         pos: k.vec2(k.width() - 50, k.height() - 30),
