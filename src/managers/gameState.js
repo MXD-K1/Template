@@ -1,5 +1,3 @@
-import k from "../kaplayContext.js";
-
 export default function globalGameState() {
     let instance = null;
 
