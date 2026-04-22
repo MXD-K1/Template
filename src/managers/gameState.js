@@ -24,11 +24,9 @@ export default function globalGameState() {
             getLocale: () => locale,
             goToScene: (k, scene) => {
                 prevScene = k.getSceneName();
-                console.log(prevScene);
                 k.go(scene);
             },
             backToPrevScene(k) {
-                // console.log(prevScene);
                 if (prevScene) {
                     k.go(prevScene);
                 }

@@ -5,7 +5,7 @@ import { COLORS, GAME_NAME, version } from "../utils/constants.js";
 import { createLabel } from "../ui/components/label.js";
 
 export default function titleScene(k) {
-    colorizeBG(k, 121, 192, 234);
+    colorizeBG(k, ...COLORS.LIGHT_BLUE);
 
     k.add([
         k.text(GAME_NAME, { size: 48, font: "sinko" }),
