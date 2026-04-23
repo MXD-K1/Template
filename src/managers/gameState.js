@@ -18,6 +18,8 @@ function createInstance() {
     let prevScene = null;
     let player = null;
 
+    let volume = 1; // max 1, always divide by 10
+
     return {
         setPlayer(newPlayer) {
             player = newPlayer;
@@ -31,6 +33,12 @@ function createInstance() {
             locale = value;
         },
         getLocale: () => locale,
+        setVolume(newVolume) {
+            if (newVolume === 0) return;
+            volume = newVolume / 10;
+        },
+        getVolume: () => volume * 10,
+        getVolumeUint: () => volume,
         goToScene: (k, scene) => {
             prevScene = k.getSceneName();
             k.go(scene);

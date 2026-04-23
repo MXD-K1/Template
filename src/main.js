@@ -82,7 +82,7 @@ export async function run(k) {
 
     gameState.setPlayer(getPlayer());
     gameState.setLocale(gameState.getPlayer()?.settings?.language ?? "EN");
-    console.log(gameState.getPlayer());
+    gameState.setVolume(gameState.getPlayer()?.settings?.volume ?? 10);
 
     for (const scene in SCENES) {
         k.scene(scene, () => SCENES[scene](k));

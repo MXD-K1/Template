@@ -24,6 +24,24 @@ export default function optionsScene(k) {
         },
     );
 
+    const nums = [];
+    for (let i = 0; i <= 10; i++) {
+        nums.push(i);
+    }
+
+    createSpinner(
+        k,
+        "Volume:",
+        nums,
+        (volume) => {
+            gameState.setLocale(volume);
+        },
+        {
+            pos: k.vec2(200, 120),
+            startFrom: gameState.getVolume(),
+        },
+    );
+
     createSpinner(
         k,
         "Language:",
@@ -34,7 +52,7 @@ export default function optionsScene(k) {
             btnBack.text = getText("menu_back");
         },
         {
-            pos: k.vec2(200, 120),
+            pos: k.vec2(200, 180),
             aliases: ["EN", "ES", "ID", "HI"],
             startFrom: gameState.getLocale(),
         },

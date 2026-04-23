@@ -4,6 +4,7 @@ import { globalInput } from "../utils/input.js";
 import { COLORS } from "../utils/constants.js";
 import { controlEnemies, createEnemy } from "../entities/enemy.js";
 import { worldCamera } from "../systems/camera.js";
+import { gameState } from "../managers/stateManagers.js";
 
 export default async function createWorld(k) {
     colorizeBG(k, ...COLORS.BLACK);
@@ -21,5 +22,7 @@ export default async function createWorld(k) {
 
     worldCamera(k, map, hero);
 
-    k.play("bg_music");
+    k.play("bg_music", {
+        volume: gameState.getVolumeUint() / 10,
+    });
 }

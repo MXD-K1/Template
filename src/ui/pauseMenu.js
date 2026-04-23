@@ -85,10 +85,9 @@ export function togglePauseMenuState(k) {
 function savePlayerData() {
     // save
     const player = gameState.getPlayer();
-    console.log(player);
-    player["settings"]["language"] = gameState.getLocale();
-    gameState.setLocale(player["settings"]["language"]);
-    console.log(player["settings"]["language"]);
-    player["saveSlot"]["pos"] = player.pos;
+    player.settings.language = gameState.getLocale();
+    gameState.setLocale(player.settings.language);
+    player.settings.volume = gameState.getVolume();
+    player.saveSlot.pos = player.pos;
     savePlayer(player);
 }

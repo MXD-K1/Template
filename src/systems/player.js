@@ -12,6 +12,7 @@ export function createNewPlayer(nickname) {
         playTime: 0, // ignore that for now
 
         settings: {
+            volume: 10,
             language: "EN",
         },
 

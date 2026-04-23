@@ -1,6 +1,6 @@
 {
     "name": "naturonics",
-    "version": "0.1.19",
+    "version": "0.1.22",
     "description": "A game about the war between two groups, nature lovers and machine scientists...",
     "private": true,
     "type": "module",
