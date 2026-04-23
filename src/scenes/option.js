@@ -33,9 +33,9 @@ export default function optionsScene(k) {
         nums.push(i);
     }
 
-    createSpinner(
+    const volumeSpinner = createSpinner(
         k,
-        "Volume:",
+        getText("menu_volume"),
         nums,
         (volume) => {
             gameState.setVolume(volume);
@@ -50,17 +50,13 @@ export default function optionsScene(k) {
     const localeSpinner = createSpinner(
         k,
         getText("language"),
-        [
-            "English (EN)",
-            "Español (ES)",
-            "Bahasa Indonesia (ID)",
-            "हिन्दी (HI)",
-        ],
+        ["English (EN)", "Español (ES)", "Indonesia (ID)", "हिन्दी (HI)"],
         (locale) => {
             gameState.setLocale(locale);
             settings.text = getText("menu_settings");
             btnBack.text = getText("menu_back");
             localeSpinner.text = getText("language");
+            volumeSpinner.text = getText("menu_volume");
         },
         {
             pos: k.vec2(200, 180),

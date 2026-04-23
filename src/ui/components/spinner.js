@@ -20,7 +20,6 @@ export function createSpinner(
     const spinner = k.add([]);
     spinner.text = spinner.text ?? text;
     const label = spinner.add([k.text(text), k.pos(pos)]);
-    // TODO: [...] triggered an error about styles, so disable them
     const containerPos = k.vec2(pos);
     const mainContainer = spinner.add([k.pos(containerPos)]);
 
@@ -38,7 +37,11 @@ export function createSpinner(
     ]);
 
     const choicePos = k.vec2(40, 0);
-    const choice = container.add([k.text(choices[index]), k.pos(choicePos)]);
+    const choice = container.add([
+        k.text(choices[index], { size: 32 }),
+        k.pos(choicePos),
+    ]);
+    // TODO: [...] triggered an error about styles, so disable them
 
     btnLeft.onClick(() => {
         index = (index - 1 + choices.length) % choices.length;
