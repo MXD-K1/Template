@@ -5,6 +5,7 @@ import { COLORS } from "../utils/constants.js";
 import { controlEnemies, createEnemy } from "../entities/enemy.js";
 import { worldCamera } from "../systems/camera.js";
 import { createBox } from "../ui/tempBox.js";
+import { gameState } from "../managers/stateManagers.js";
 
 export default async function createWorld(k) {
     colorizeBG(k, ...COLORS.BLACK);
@@ -16,6 +17,7 @@ export default async function createWorld(k) {
 
     const hero = k.add(createHero(k, k.vec2(320, 470)));
     k.add(createEnemy(k, k.vec2(320, 520), {}));
+    gameState.setFreezePlayer(false);
     moveHero(k, hero);
 
     controlEnemies(k, hero);
