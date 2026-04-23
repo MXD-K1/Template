@@ -34,7 +34,8 @@ export default function optionsScene(k) {
         "Volume:",
         nums,
         (volume) => {
-            gameState.setLocale(volume);
+            gameState.setVolume(volume);
+            k.volume(volume);
         },
         {
             pos: k.vec2(200, 120),
