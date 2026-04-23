@@ -1,7 +1,11 @@
 import k from "./kaplayContext.js";
 import { dialogData, SCENES } from "./utils/constants.js";
 import { fetchData } from "./utils/utils.js";
-import { getWavedash, initWavedash, updateLoadingProgress } from "./wavedash.js";
+import {
+    getWavedash,
+    initWavedash,
+    updateLoadingProgress,
+} from "./wavedash.js";
 import { getPlayer } from "./systems/player.js";
 import { gameState } from "./managers/stateManagers.js";
 
@@ -46,7 +50,12 @@ async function loadAssets(k) {
         },
     });
     k.loadSprite("box", "assets/sprites/dialog.png", {
-        slice9: {},
+        slice9: {
+            left: 16,
+            right: 16,
+            top: 16,
+            bottom: 16,
+        },
     });
 
     // Sounds (SFX)
