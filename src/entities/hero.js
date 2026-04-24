@@ -74,3 +74,12 @@ export function moveHero(k, hero) {
         playAnimIfNotPlaying(hero, `hero.${hero.direction}.${hero.state}`);
     });
 }
+
+export function checkHeroHp(k, hero) {
+    k.onUpdate(() => {
+        if (hero.hp() <= 0) {
+            hero.destroy();
+            gameState.goToScene(k, "death");
+        }
+    });
+}

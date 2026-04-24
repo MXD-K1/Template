@@ -4,12 +4,14 @@ import createWorld from "../scenes/world.js";
 import loadScene from "../scenes/load.js";
 import titleScene from "../scenes/title.js";
 import optionsScene from "../scenes/option.js";
+import { deathScene } from "../scenes/death.js";
 
 export const SCENES = {
     title: titleScene,
     load: loadScene,
     world: createWorld,
     option: optionsScene,
+    death: deathScene,
 };
 
 export const GAME_NAME = "Naturonics";

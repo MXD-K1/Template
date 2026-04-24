@@ -1,5 +1,5 @@
 import { colorizeBG, drawMap, fetchData } from "../utils/utils.js";
-import { createHero, moveHero } from "../entities/hero.js";
+import { checkHeroHp, createHero, moveHero } from "../entities/hero.js";
 import { globalInput } from "../utils/input.js";
 import { COLORS } from "../utils/constants.js";
 import { controlEnemies, createEnemy } from "../entities/enemy.js";
@@ -24,6 +24,7 @@ export default async function createWorld(k) {
 
     worldCamera(k, map, hero);
     createHPBar(k, hero.hp(), 10);
+    checkHeroHp(k, hero);
 
     const bg_music = k.play("bg_music", { loop: true });
 
