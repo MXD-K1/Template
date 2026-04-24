@@ -28,6 +28,8 @@ export default async function createWorld(k) {
 
     const bg_music = k.play("bg_music", { loop: true });
 
+    k.onKeyPress("e", () => {}); // placeholder  for now
+
     k.onSceneLeave(() => {
         bg_music.stop();
         hero.state = "idle";
