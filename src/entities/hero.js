@@ -14,9 +14,10 @@ import {
 
 export function createHero(k, pos) {
     return [
-        ...createEntity(k, pos),
-        k.sprite("hero", { anim: "hero.down.move" }),
-        k.area({ shape: new k.Rect(k.vec2(8, 40), 16, 16) }),
+        ...createEntity(k, "hero", pos, {
+            rect: new k.Rect(k.vec2(8, 40), 16, 16),
+        }),
+        k.sprite("hero", { anim: "down.move" }),
         k.health(10),
         "hero",
         {
@@ -24,7 +25,6 @@ export function createHero(k, pos) {
             direction: "down",
             state: "idle",
             maxHp: 10,
-            entityName: "hero",
 
             attackRange: HERO_ATTACK_RANGE,
             attackDamage: HERO_ATTACK_DAMAGE,
@@ -103,7 +103,7 @@ export function moveHero(k, hero) {
             moveVec.y = (moveVec.y / len) * hero.speed;
             hero.move(moveVec.x, moveVec.y);
         }
-        playAnimIfNotPlaying(hero, `hero.${hero.direction}.${hero.state}`);
+        playAnimIfNotPlaying(hero, `${hero.direction}.${hero.state}`);
     });
 }
 

@@ -24,29 +24,24 @@ async function loadAssets(k) {
         sliceX: 7,
         sliceY: 9,
         anims: {
-            "hero.left.idle": 0,
-            "hero.right.idle": 1,
-            "hero.up.idle": 2,
-            "hero.down.idle": 3,
-            "hero.down.left.idle": 0,
-            "hero.down.right.idle": 1,
-            "hero.up.left.idle": 0,
-            "hero.up.right.idle": 1,
+            "left.idle": 0,
+            "right.idle": 1,
+            "up.idle": 2,
+            "down.idle": 3,
+            "down.left.idle": 0,
+            "down.right.idle": 1,
+            "up.left.idle": 0,
+            "up.right.idle": 1,
 
-            "hero.left.move": { from: 7, to: 13, loop: true },
-            "hero.down.move": { from: 14, to: 20, loop: true },
-            "hero.right.move": { from: 21, to: 27, loop: true },
-            "hero.up.move": { from: 28, to: 34, loop: true },
+            "left.move": { from: 7, to: 13, loop: true },
+            "down.move": { from: 14, to: 20, loop: true },
+            "right.move": { from: 21, to: 27, loop: true },
+            "up.move": { from: 28, to: 34, loop: true },
 
-            "hero.up.left.move": { from: 35, to: 41, loop: true },
-            "hero.up.right.move": { from: 42, to: 48, loop: true },
-            "hero.down.left.move": { from: 49, to: 55, loop: true },
-            "hero.down.right.move": { from: 56, to: 62, loop: true },
-
-            // "hero.left.attack"
-            // "hero.right.attack"
-            // "hero.up.attack"
-            // "hero.down.attack"
+            "up.left.move": { from: 35, to: 41, loop: true },
+            "up.right.move": { from: 42, to: 48, loop: true },
+            "down.left.move": { from: 49, to: 55, loop: true },
+            "down.right.move": { from: 56, to: 62, loop: true },
         },
     });
     k.loadSprite("box", "assets/sprites/dialog.png", {
@@ -62,6 +57,35 @@ async function loadAssets(k) {
         sliceY: 1,
         anims: {
             slash: { from: 0, to: 5, loop: false, speed: 18 },
+        },
+    });
+    k.loadSprite("AcronRobot", "assets/sprites/enemies/AcornRobot.png", {
+        sliceX: 9,
+        sliceY: 12,
+        anims: {
+            "left.idle": 27,
+            "right.idle": 18,
+            "up.idle": 9,
+            "down.idle": 0,
+            "down.left.idle": 27,
+            "down.right.idle": 18,
+            "up.left.idle": 27,
+            "up.right.idle": 18,
+
+            "left.move": { from: 63, to: 68, loop: true },
+            "down.move": { from: 36, to: 41, loop: true },
+            "right.move": { from: 54, to: 59, loop: true },
+            "up.move": { from: 45, to: 50, loop: true },
+
+            "up.left.move": { from: 63, to: 68, loop: true },
+            "up.right.move": { from: 54, to: 59, loop: true },
+            "down.left.move": { from: 63, to: 68, loop: true },
+            "down.right.move": { from: 54, to: 59, loop: true },
+
+            // "left.attack"
+            // "right.attack"
+            // "up.attack"
+            // "down.attack"
         },
     });
 

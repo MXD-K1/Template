@@ -3,21 +3,21 @@ import { hitAttack } from "./attacks/hitAttack.js";
 import { ATTACK_STATES } from "../utils/constants.js";
 import { playAnimIfNotPlaying, spawnAttackEffect } from "../utils/utils.js";
 
-export function createEnemy(k, pos, opts = {}) {
+export function createEnemy(k, name, pos, opts = {}) {
     let hp = 3;
     let damage = 1;
     let resistance = 0;
     let range = 300;
+    let attacks = null;
 
     if (opts.hp) hp = opts.hp;
     if (opts.damage) damage = opts.damage;
     if (opts.resistance) resistance = opts.resistance;
     if (opts.range) range = opts.range;
+    if (opts.attacks) attacks = opts.attacks;
 
-    return [
-        ...createEntity(k, pos, { speed: 60 }),
-        k.sprite("hero", { anim: "hero.down.idle" }),
-        k.area({ shape: new k.Rect(k.vec2(8, 40), 16, 16) }),
+    const components = [
+        ...createEntity(k, name ?? "enemy", pos, opts),
         k.health(hp),
         k.sentry({ raycastExclude: ["enemy"] }, { lineOfSight: true }),
         "enemy",
@@ -28,9 +28,8 @@ export function createEnemy(k, pos, opts = {}) {
             range: range,
             attackRange: 50,
             direction: "down",
-            entityName: "enemy",
 
-            attacks: {
+            attacks: attacks ?? {
                 basicAttack: hitAttack("basicAttack", {
                     damage: 0.5,
                     cooldown: 1,
@@ -40,6 +39,12 @@ export function createEnemy(k, pos, opts = {}) {
             lastAttackTime: 0,
         },
     ];
+
+    if (!opts.nosprite) {
+        components.push(k.sprite("hero", { anim: "down.idle" }));
+    }
+
+    return components;
 }
 
 export function takeDamage(enemy, damage) {
@@ -73,7 +78,7 @@ export function moveEnemy(k, enemy, hero) {
     else if (xDir) enemy.direction = xDir;
     else if (yDir) enemy.direction = yDir;
 
-    const anim = `hero.${enemy.direction}.move`;
+    const anim = `${enemy.direction}.move`;
     playAnimIfNotPlaying(enemy, anim);
 }
 
@@ -113,7 +118,7 @@ export function controlEnemies(k, hero) {
             const inAttackRange = isInAttackRange(enemy, hero);
 
             if (inAttackRange) {
-                const anim = `hero.${enemy.direction}.idle`;
+                const anim = `${enemy.direction}.idle`;
                 playAnimIfNotPlaying(enemy, anim);
                 const attack = enemy.attacks[enemy.currentAttack];
                 if (attack) {
@@ -123,7 +128,7 @@ export function controlEnemies(k, hero) {
                 moveEnemy(k, enemy, hero);
             }
         } else {
-            const anim = `hero.${enemy.direction}.idle`;
+            const anim = `${enemy.direction}.idle`;
             playAnimIfNotPlaying(enemy, anim);
         }
     });

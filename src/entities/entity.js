@@ -1,14 +1,14 @@
 import { speedFactor } from "../utils/constants.js";
 
-export function createEntity(k, pos, opts = {}) {
+export function createEntity(k, name, pos, opts = {}) {
     return [
         k.pos(pos),
-        k.area(),
+        k.area({ shape: opts.rect }),
         k.body(),
         k.opacity(),
         {
-            speed: opts.speed || 10 * speedFactor,
-            entityName: null, // must be overridden
+            speed: (opts.speed || 10) * speedFactor,
+            entityName: name,
         },
     ];
 }
