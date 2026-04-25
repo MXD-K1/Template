@@ -1,4 +1,5 @@
 import {
+    camScale,
     screenHeight,
     screenWidth,
     tileHeight,
@@ -30,19 +31,42 @@ export async function fetchData(mapPath) {
     return await (await fetch(mapPath)).json();
 } // also works for map data
 
-function drawTiles(k, layer, tileHeight, tileWidth) {
-    for (let i = 0; i < layer.data.length; i++) {
-        const tile = layer.data[i];
-        if (tile === 0) continue;
+function drawVisibleTiles(k, map, layer) {
+    const cam = k.camPos();
+    const viewWidth = k.width() / camScale;
+    const viewHeight = k.height() / camScale;
 
-        const x = (i % layer.width) * tileWidth;
-        const y = Math.floor(i / layer.width) * tileHeight;
+    const startCol = Math.max(
+        0,
+        Math.floor((cam.x - viewWidth / 2) / tileWidth) - 1,
+    );
+    const endCol = Math.min(
+        layer.width,
+        Math.ceil((cam.x + viewWidth / 2) / tileWidth) + 1,
+    );
 
-        k.drawSprite({
-            sprite: "assets",
-            frame: tile - 1,
-            pos: k.vec2(x, y),
-        });
+    const startRow = Math.max(
+        0,
+        Math.floor((cam.y - viewHeight / 2) / tileHeight) - 1,
+    );
+    const endRow = Math.min(
+        map.height,
+        Math.ceil((cam.y + viewHeight / 2) / tileHeight) + 1,
+    );
+
+    for (let row = startRow; row < endRow; row++) {
+        for (let col = startCol; col < endCol; col++) {
+            const index = row * layer.width + col;
+            const tile = layer.data[index];
+
+            if (!tile) continue;
+
+            k.drawSprite({
+                sprite: "assets",
+                frame: tile - 1,
+                pos: k.vec2(col * tileWidth, row * tileHeight),
+            });
+        }
     }
 }
 
@@ -63,7 +87,7 @@ function drawBoundaries(k, mapColliders, layer) {
                 k,
                 object.width,
                 object.height,
-                k.vec2(object.x, object.y + 16),
+                k.vec2(object.x, object.y),
                 object.rotation,
                 object.name,
             ),
@@ -73,17 +97,22 @@ function drawBoundaries(k, mapColliders, layer) {
 
 export function drawMap(k, map) {
     const mapColliders = k.add([k.pos(0, 0)]);
+    const tileLayers = [];
 
     for (const layer of map.layers) {
         if (layer.name === "Collisions") {
             drawBoundaries(k, mapColliders, layer);
+            continue;
+        }
+
+        if (layer.type === "tilelayer") {
+            tileLayers.push(layer);
         }
     }
 
     k.onDraw(() => {
-        for (const layer of map.layers) {
-            if (layer.name === "Collisions") continue;
-            drawTiles(k, layer, tileHeight, tileWidth);
+        for (const layer of tileLayers) {
+            drawVisibleTiles(k, map, layer);
         }
     });
 }

@@ -17,6 +17,11 @@ export function createLabel(k, text, opts = {}, parent = null) {
         }
     }
 
+    opts.timed = opts.timed ?? 0;
+    if (opts.timed) {
+        components.push(k.lifespan(opts.timed));
+    }
+
     const label = createUIComponent(k, components, opts, parent);
 
     if (opts.pos) {
