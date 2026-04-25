@@ -22,8 +22,8 @@ export function colorizeBG(k, r, g, b) {
     k.add([k.rect(screenWidth, screenHeight), k.color(r, g, b), k.fixed()]);
 }
 
-export function playAnimIfNotPlaying(gameObj, animName) {
-    if (gameObj.curAnim() !== animName) gameObj.play(animName);
+export function playAnimIfNotPlaying(gameObj, animName, speed = 1) {
+    if (gameObj.curAnim() !== animName) gameObj.play(animName, speed);
 }
 
 export async function fetchData(mapPath) {

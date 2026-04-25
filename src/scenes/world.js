@@ -26,7 +26,7 @@ export default async function createWorld(k) {
     drawMap(k, map);
 
     const hero = k.add(createHero(k, k.vec2(320, 470)));
-    k.add(createAcornRobot(k, k.vec2(320, 520)));
+    k.add(createAcornRobot(k, k.vec2(820, 520)));
     moveHero(k, hero);
     k.onKeyPress("j", () => attackHero(k, hero));
 

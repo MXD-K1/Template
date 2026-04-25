@@ -82,10 +82,15 @@ async function loadAssets(k) {
             "down.left.move": { from: 63, to: 68, loop: true },
             "down.right.move": { from: 54, to: 59, loop: true },
 
-            // "left.attack"
-            // "right.attack"
-            // "up.attack"
-            // "down.attack"
+            "left.attack": { from: 72, to: 77, loop: false },
+            "right.attack": { from: 81, to: 86, loop: false },
+            "up.attack": { from: 90, to: 97, loop: false },
+            "down.attack": { from: 99, to: 102, loop: false },
+
+            "up.left.attack": { from: 72, to: 77, loop: false },
+            "up.right.attack": { from: 81, to: 86, loop: false },
+            "down.left.attack": { from: 72, to: 77, loop: false },
+            "down.right.attack": { from: 81, to: 86, loop: false },
         },
     });
 

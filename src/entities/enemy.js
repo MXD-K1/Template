@@ -28,6 +28,7 @@ export function createEnemy(k, name, pos, opts = {}) {
             range: range,
             attackRange: 50,
             direction: "down",
+            state: "idle",
 
             attacks: attacks ?? {
                 basicAttack: hitAttack("basicAttack", {
@@ -78,7 +79,10 @@ export function moveEnemy(k, enemy, hero) {
     else if (xDir) enemy.direction = xDir;
     else if (yDir) enemy.direction = yDir;
 
-    const anim = `${enemy.direction}.move`;
+    if (dir) enemy.state = "move";
+    else enemy.state = "idle";
+
+    const anim = `${enemy.direction}.${enemy.state}`;
     playAnimIfNotPlaying(enemy, anim);
 }
 
@@ -86,11 +90,16 @@ export function isInAttackRange(enemy, hero) {
     return enemy.pos.dist(hero.pos) <= enemy.attackRange;
 }
 
-export function executeAttack(enemy, attack, hero, k) {
+export function executeAttack(k, enemy, attack, hero, effect = false) {
     if (attack.state !== ATTACK_STATES.READY) return false;
 
     const totalDamage = enemy.damage + attack.damage;
-    spawnAttackEffect(k, enemy);
+    if (effect) {
+        spawnAttackEffect(k, enemy);
+    }
+
+    enemy.state = "attack";
+    playAnimIfNotPlaying(enemy, `${enemy.direction}.${enemy.state}`);
 
     if (hero.hurt) {
         hero.hurt(totalDamage);
@@ -122,7 +131,7 @@ export function controlEnemies(k, hero) {
                 playAnimIfNotPlaying(enemy, anim);
                 const attack = enemy.attacks[enemy.currentAttack];
                 if (attack) {
-                    executeAttack(enemy, attack, hero, k);
+                    executeAttack(k, enemy, attack, hero);
                 }
             } else {
                 moveEnemy(k, enemy, hero);
