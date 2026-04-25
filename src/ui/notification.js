@@ -6,7 +6,7 @@ export function createNotificationBar(k, text, icon = null, duration = 3) {
     let bar = null;
     k.wait(1, () => {
         bar = k.add([
-            k.rect(500, 50),
+            k.rect(620, 50),
             k.color(COLORS.WHITE),
             k.anchor("center"),
             k.pos(k.width() / 2, k.height() - 40),

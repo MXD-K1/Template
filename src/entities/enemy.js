@@ -128,7 +128,9 @@ export function executeAttack(k, enemy, attack, hero, effect = false) {
     return true;
 }
 
-export function controlEnemies(k, hero) {
+export function controlEnemies(k, hero, opts = {}) {
+    const tutOnAttack = opts.tutOnAttack
+
     k.onUpdate("enemy", (enemy) => {
         if (enemy.hp && enemy.hp() <= 0) {
             enemy.destroy();
@@ -147,8 +149,11 @@ export function controlEnemies(k, hero) {
                 const anim = `${enemy.direction}.${enemy.state}`;
                 playAnimIfNotPlaying(enemy, anim);
                 const attack = enemy.attacks[enemy.currentAttack];
+                
                 if (attack) {
                     executeAttack(k, enemy, attack, hero);
+                    tutOnAttack(enemy, attack);
+                    
                 }
             } else {
                 moveEnemy(k, enemy, hero);
