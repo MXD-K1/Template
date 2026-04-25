@@ -105,6 +105,8 @@ export function executeAttack(k, enemy, attack, hero, effect = false) {
         hero.hurt(totalDamage);
     }
 
+    enemy.state = "idle";
+
     attack.state = ATTACK_STATES.COOLDOWN;
     attack.startTime = k.currentTime;
 
@@ -127,7 +129,8 @@ export function controlEnemies(k, hero) {
             const inAttackRange = isInAttackRange(enemy, hero);
 
             if (inAttackRange) {
-                const anim = `${enemy.direction}.idle`;
+                enemy.state = "idle";
+                const anim = `${enemy.direction}.${enemy.state}`;
                 playAnimIfNotPlaying(enemy, anim);
                 const attack = enemy.attacks[enemy.currentAttack];
                 if (attack) {
@@ -137,7 +140,8 @@ export function controlEnemies(k, hero) {
                 moveEnemy(k, enemy, hero);
             }
         } else {
-            const anim = `${enemy.direction}.idle`;
+            enemy.state = "idle";
+            const anim = `${enemy.direction}.${enemy.state}`;
             playAnimIfNotPlaying(enemy, anim);
         }
     });
