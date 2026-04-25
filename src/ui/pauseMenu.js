@@ -18,6 +18,7 @@ export function createPauseMenu(k) {
         k.color(COLORS.WHITE),
         k.anchor("center"),
         k.pos(k.center()),
+        k.z(Number.POSITIVE_INFINITY),
         k.fixed(),
         "pauseMenu",
     ]);

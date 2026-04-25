@@ -52,6 +52,7 @@ export function attackHero(k, hero) {
 
 export function moveHero(k, hero) {
     hero.onUpdate(() => {
+        hero.z = hero.pos.y - 56;
         if (gameState.getFreezePlayer()) return;
 
         const moveVec = k.vec2(0, 0);
