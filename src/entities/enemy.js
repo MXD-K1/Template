@@ -130,6 +130,11 @@ export function executeAttack(k, enemy, attack, hero, effect = false) {
 
 export function controlEnemies(k, hero) {
     k.onUpdate("enemy", (enemy) => {
+        if (enemy.hp && enemy.hp() <= 0) {
+            enemy.destroy();
+            return;
+        }
+
         enemy.playerSeen = hasLos(enemy, hero);
 
         if (enemy.playerSeen) {

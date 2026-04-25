@@ -6,7 +6,7 @@ import {
 } from "./constants.js";
 import { gameState } from "../managers/stateManagers.js";
 
-const ENEMY_ATTACK_FX_OFFSET = 24;
+const ENEMY_ATTACK_FX_OFFSET = 10;
 const DIR_ANGLES = {
     right: 0,
     "down.right": 45,

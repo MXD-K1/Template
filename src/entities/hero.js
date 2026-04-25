@@ -37,12 +37,13 @@ export function createHero(k, pos) {
 export function attackHero(k, hero) {
     if (gameState.getFreezePlayer()) return false;
 
+    spawnAttackEffect(k, hero);
     if (k.time() - hero.lastAttackTime < hero.attackCooldown) return false;
 
     const target = getClosestEntityInRange(k, hero, "enemy", hero.attackRange);
     if (!target) return false;
 
-    spawnAttackEffect(k, hero);
+
     if (target.hurt) target.hurt(hero.attackDamage);
 
     hero.lastAttackTime = k.time();
