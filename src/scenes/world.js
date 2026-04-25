@@ -32,7 +32,7 @@ export default async function createWorld(k) {
             if (hasShownAttackTutorial.attack) return;
 
             hasShownAttackTutorial = {...hasShownAttackTutorial, attack: true};
-            createNotificationBar(k, tutorialByLocale.attack);
+            createNotificationBar(k, tutorialByLocale.attack, null, 5);
 
             k.wait(5, () => {
                 createNotificationBar(k, tutorialByLocale.pause, null, 5);
