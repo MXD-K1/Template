@@ -57,6 +57,13 @@ async function loadAssets(k) {
             bottom: 16,
         },
     });
+    k.loadSprite("pipe_attack", "assets/sprites/pipeAttack.png", {
+        sliceX: 6,
+        sliceY: 1,
+        anims: {
+            slash: { from: 0, to: 5, loop: false, speed: 18 },
+        },
+    });
 
     // Sounds (SFX)
     k.loadMusic("bg_music", "assets/sound/ambience.mp3");

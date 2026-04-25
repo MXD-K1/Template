@@ -1,6 +1,13 @@
 import { createEntity } from "./entity.js";
 import { gameState } from "../managers/stateManagers.js";
-import { playAnimIfNotPlaying } from "../utils/utils.js";
+import {
+    getClosestEntityInRange,
+    playAnimIfNotPlaying,
+    spawnAttackEffect,
+} from "../utils/utils.js";
+
+
+import { HERO_ATTACK_RANGE, HERO_ATTACK_DAMAGE, HERO_ATTACK_COOLDOWN} from "../utils/constants.js";
 
 export function createHero(k, pos) {
     return [
@@ -14,8 +21,27 @@ export function createHero(k, pos) {
             direction: "down",
             state: "idle",
             maxHp: 10,
+            attackRange: HERO_ATTACK_RANGE,
+            attackDamage: HERO_ATTACK_DAMAGE,
+            attackCooldown: HERO_ATTACK_COOLDOWN,
+            lastAttackTime: Number.NEGATIVE_INFINITY,
         },
     ];
+}
+
+export function attackHero(k, hero) {
+    if (gameState.getFreezePlayer()) return false;
+
+    if (k.time() - hero.lastAttackTime < hero.attackCooldown) return false;
+
+    const target = getClosestEntityInRange(k, hero, "enemy", hero.attackRange);
+    if (!target) return false;
+
+    spawnAttackEffect(k, hero);
+    if (target.hurt) target.hurt(hero.attackDamage);
+
+    hero.lastAttackTime = k.time(); 
+    return true;
 }
 
 export function moveHero(k, hero) {

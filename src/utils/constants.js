@@ -80,3 +80,8 @@ export const ATTACK_TARGETS = Object.freeze({
     AUTO_TARGET: 3,
     NULL: 4,
 });
+
+
+export const HERO_ATTACK_RANGE = 56;
+export const HERO_ATTACK_DAMAGE = 2;
+export const HERO_ATTACK_COOLDOWN = 1;

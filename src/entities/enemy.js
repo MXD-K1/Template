@@ -1,7 +1,9 @@
 import { createEntity } from "./entity.js";
 import { hitAttack } from "./attacks/hitAttack.js";
 import { ATTACK_STATES } from "../utils/constants.js";
-import { playAnimIfNotPlaying } from "../utils/utils.js";
+import { playAnimIfNotPlaying, spawnAttackEffect } from "../utils/utils.js";
+
+
 
 export function createEnemy(k, pos, opts = {}) {
     let hp = 3;
@@ -84,6 +86,7 @@ export function executeAttack(enemy, attack, hero, k) {
     if (attack.state !== ATTACK_STATES.READY) return false;
 
     const totalDamage = enemy.damage + attack.damage;
+    spawnAttackEffect(k, enemy);
 
     if (hero.hurt) {
         hero.hurt(totalDamage);
