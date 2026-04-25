@@ -26,6 +26,8 @@ export const camScale = 1.5;
 
 export const speedFactor = 35;
 
+export const DEFAULT_ATTACK_ANIM_TIME = 0.35;
+
 export const LOCALES = Object.freeze({
     AR: "AR",
     EN: "EN",
@@ -80,7 +82,6 @@ export const ATTACK_TARGETS = Object.freeze({
     AUTO_TARGET: 3,
     NULL: 4,
 });
-
 
 export const HERO_ATTACK_RANGE = 56;
 export const HERO_ATTACK_DAMAGE = 2;
