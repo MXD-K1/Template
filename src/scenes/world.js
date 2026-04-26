@@ -76,9 +76,16 @@ export default async function createWorld(k) {
         });
     });
 
-    if (!k.get("enemy")) {
-        createBox(k, questByLocale.Quest2.name, questByLocale.Quest2.info, {});
-    }
+    k.onUpdate(() => {
+        if (k.get("enemy").length === 0) {
+            createBox(
+                k,
+                questByLocale.Quest2.name,
+                questByLocale.Quest2.info,
+                {},
+            );
+        }
+    });
 
     k.onSceneLeave(() => {
         bg_music.stop();

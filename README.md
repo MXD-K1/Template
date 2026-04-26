@@ -56,6 +56,7 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 | `S / ↓` | Move Down  |
 | `p`     | Pause      |
 | `e`     | Interact   |
+| `j`     | Attack     |
 
 <!--| `Space` | Attack     |-->
 ---
