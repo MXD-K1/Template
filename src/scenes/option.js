@@ -26,6 +26,7 @@ export default function optionsScene(k) {
         },
         {
             pos: k.vec2(k.width() / 2, k.height() - 100),
+            font: getFont("button"),
         },
     );
 
@@ -44,6 +45,7 @@ export default function optionsScene(k) {
         },
         {
             pos: k.vec2(200, 120),
+            font: getFont("button"),
             startFrom: gameState.getVolume(),
         },
     );
@@ -61,6 +63,7 @@ export default function optionsScene(k) {
         },
         {
             pos: k.vec2(200, 180),
+            font: getFont("button"),
             aliases: ["EN", "ES", "ID", "HI"],
             startFrom: gameState.getLocale(),
         },

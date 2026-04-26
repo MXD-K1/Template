@@ -1,3 +1,5 @@
+import { getFont } from "../../utils/font.js";
+
 export function createSpinner(
     k,
     text,
@@ -19,7 +21,10 @@ export function createSpinner(
 
     const spinner = k.add([]);
     spinner.text = spinner.text ?? text;
-    const label = spinner.add([k.text(text), k.pos(pos)]);
+    const label = spinner.add([
+        k.text(text, { ...(opts.font ?? getFont("label")) }),
+        k.pos(pos),
+    ]);
     const containerPos = k.vec2(pos);
     const mainContainer = spinner.add([k.pos(containerPos)]);
 
@@ -38,7 +43,10 @@ export function createSpinner(
 
     const choicePos = k.vec2(40, 0);
     const choice = container.add([
-        k.text(choices[index], { size: 32 }),
+        k.text(choices[index], {
+            size: 32,
+            ...(opts.font ?? getFont("label")),
+        }),
         k.pos(choicePos),
     ]);
     // TODO: [...] triggered an error about styles, so disable them

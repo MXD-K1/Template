@@ -4,7 +4,6 @@
             "name": "Kill Enemy",
             "info": "Press j to attack"
         },
-
         "Quest2": {
             "name": "Patient Scavenger",
             "info": "Wait for the next release!"
@@ -12,35 +11,32 @@
     },
     "ES": {
         "Quest1": {
-            "name": "",
-            "info": ""
+            "name": "Matar enemigo",
+            "info": "Pulsa J para atacar"
         },
-
         "Quest2": {
-            "name": "",
-            "info": ""
+            "name": "Carroñero paciente",
+            "info": "¡Espera la próxima versión!"
         }
     },
     "ID": {
         "Quest1": {
-            "name": "",
-            "info": ""
+            "name": "Bunuh Musuh",
+            "info": "Tekan J untuk menyerang"
         },
-
         "Quest2": {
-            "name": "",
-            "info": ""
+            "name": "Pemulung Sabar",
+            "info": "Tunggu rilis berikutnya!"
         }
     },
     "HI": {
         "Quest1": {
-            "name": "",
-            "info": ""
+            "name": "दुश्मन को मारो",
+            "info": "हमला करने के लिए J दबाएं"
         },
-
         "Quest2": {
-            "name": "",
-            "info": ""
+            "name": "धैर्यवान कबाड़ी",
+            "info": "अगले रिलीज़ का इंतज़ार करें!"
         }
     }
 }

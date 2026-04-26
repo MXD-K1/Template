@@ -35,6 +35,8 @@ export default async function createWorld(k) {
         hero.pos = k.vec2(pos.x, pos.y);
     }
 
+    let enemiesKilled = gameState.getPlayer()?.saveSlot?.complete ?? false;
+
     createNotificationBar(k, tutorialByLocale.move, null, 5);
     moveHero(k, hero);
     k.onKeyPress("j", () => attackHero(k, hero));
@@ -78,7 +80,7 @@ export default async function createWorld(k) {
     });
 
     k.onUpdate(() => {
-        if (k.get("enemy").length === 0) {
+        if (k.get("enemy").length === 0 && !enemiesKilled) {
             createBox(
                 k,
                 questByLocale.Quest2.name,
@@ -86,6 +88,7 @@ export default async function createWorld(k) {
                 {},
             );
             gameState.getPlayer().saveSlot.complete = true;
+            enemiesKilled = true;
         }
     });
 
