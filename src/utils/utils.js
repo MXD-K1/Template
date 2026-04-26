@@ -168,13 +168,14 @@ export function interactWithObjs(k, origin, execute) {
 export function spawnAttackEffect(k, person) {
     const angle = DIR_ANGLES[person.direction] ?? 90;
 
+    const handOffset = k.vec2(5, 32);
+    const spawnPos = person.pos
+        .add(handOffset)
+        .add(k.Vec2.fromAngle(angle).scale(ENEMY_ATTACK_FX_OFFSET));
+
     k.add([
         k.sprite("pipe_attack", { anim: "slash" }),
-        k.pos(
-            person.pos.add(
-                k.Vec2.fromAngle(angle).scale(ENEMY_ATTACK_FX_OFFSET),
-            ),
-        ),
+        k.pos(spawnPos),
         k.anchor("center"),
         k.rotate(angle),
         k.opacity(),
