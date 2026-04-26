@@ -86,3 +86,5 @@ export const ATTACK_TARGETS = Object.freeze({
 export const HERO_ATTACK_RANGE = 56;
 export const HERO_ATTACK_DAMAGE = 2;
 export const HERO_ATTACK_COOLDOWN = 1;
+export const HERO_AUTO_HEAL_DELAY = 3;
+export const HERO_AUTO_HEAL_PER_SECOND = 0.5;

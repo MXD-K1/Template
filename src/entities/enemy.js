@@ -105,6 +105,7 @@ export function executeAttack(k, enemy, attack, hero, effect = false) {
     playAnimIfNotPlaying(enemy, `${enemy.direction}.${enemy.state}`);
 
     if (hero.hurt) {
+        hero.lastCombatTime = k.time();
         hero.hurt(totalDamage);
     }
 

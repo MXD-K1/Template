@@ -10,7 +10,11 @@ import {
     HERO_ATTACK_COOLDOWN,
     HERO_ATTACK_DAMAGE,
     HERO_ATTACK_RANGE,
+    HERO_AUTO_HEAL_DELAY,
+    HERO_AUTO_HEAL_PER_SECOND,
 } from "../utils/constants.js";
+
+
 
 export function createHero(k, pos) {
     return [
@@ -30,6 +34,9 @@ export function createHero(k, pos) {
             attackDamage: HERO_ATTACK_DAMAGE,
             attackCooldown: HERO_ATTACK_COOLDOWN,
             lastAttackTime: Number.NEGATIVE_INFINITY,
+            lastCombatTime: k.time(),
+            autoHealDelay: HERO_AUTO_HEAL_DELAY,
+            autoHealPerSecond: HERO_AUTO_HEAL_PER_SECOND,
         },
     ];
 }
@@ -40,6 +47,7 @@ export function attackHero(k, hero) {
     if (k.time() - hero.lastAttackTime < hero.attackCooldown) return false;
 
     hero.lastAttackTime = k.time();
+    hero.lastCombatTime = k.time();
     spawnAttackEffect(k, hero);
 
     const target = getClosestEntityInRange(k, hero, "enemy", hero.attackRange);
@@ -114,6 +122,18 @@ export function checkHeroHp(k, hero) {
         if (hero.hp() <= 0) {
             hero.destroy();
             gameState.goToScene(k, "death");
+            return;
+        }
+
+        if (hero.hp() >= hero.maxHp) return;
+
+        if (k.time() - hero.lastCombatTime < hero.autoHealDelay) return;
+
+        const healAmount = hero.autoHealPerSecond * k.dt();
+        const missingHp = hero.maxHp - hero.hp();
+
+        if (healAmount > 0 && hero.heal) {
+            hero.heal(Math.min(healAmount, missingHp));
         }
     });
 }
