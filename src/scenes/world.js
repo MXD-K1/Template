@@ -44,23 +44,20 @@ export default async function createWorld(k) {
                 attack: true,
             };
             createNotificationBar(k, tutorialByLocale.attack, null, 5);
+            createBox(
+                k,
+                questByLocale.Quest1.name,
+                questByLocale.Quest1.info,
+                {},
+            );
 
             k.wait(5, () => {
                 createNotificationBar(k, tutorialByLocale.pause, null, 5);
             });
 
-            k.wait(10, () => {
-                createNotificationBar(k, tutorialByLocale.Interact, null, 5);
-            });
-
-            k.wait(12, () => {
-                createBox(
-                    k,
-                    questByLocale.Quest1.name,
-                    questByLocale.Quest1.info,
-                    {},
-                );
-            });
+            // k.wait(10, () => {
+            //     createNotificationBar(k, tutorialByLocale.interact, null, 5);
+            // });
         },
     });
 

@@ -2,25 +2,25 @@
     "EN": {
         "move": "Sync neural pathways: Use Arrow Keys or WASD to navigate the sector.",
         "pause": "Halt transmission: Press P to stabilize the system.",
-        "Interact": "Biological interface: Press E to interact with entities or scrap.",
+        "interact": "Biological interface: Press E to interact with entities or scrap.",
         "attack": "Initiate purge: Press J to strike with the iron claw."
     },
     "ID": {
         "move": "Sinkronisasi jalur saraf: Gunakan Panah atau WASD untuk navigasi sektor.",
         "pause": "Hentikan transmisi: Tekan P untuk menstabilkan sistem.",
-        "Interact": "Antarmuka biologis: Tekan E untuk berinteraksi dengan entitas atau rongsokan.",
+        "interact": "Antarmuka biologis: Tekan E untuk berinteraksi dengan entitas atau rongsokan.",
         "attack": "Inisiasi pembersihan: Tekan J untuk menyerang dengan cakar besi."
     },
     "ES": {
         "move": "Sincronizar vías neuronales: Usa las flechas o WASD para navegar por el sector.",
         "pause": "Detener transmisión: Pulsa P para estabilizar el sistema.",
-        "Interact": "Interfaz biológica: Pulsa E para interactuar con entidades o chatarra.",
+        "interact": "Interfaz biológica: Pulsa E para interactuar con entidades o chatarra.",
         "attack": "Iniciar purga: Pulsa J para atacar con la garra de hierro."
     },
     "HI": {
         "move": "न्यूरल पाथवे सिंक करें: सेक्टर में नेविगेट करने के लिए एरो कीज़ या WASD का उपयोग करें।",
         "pause": "प्रसारण रोकें: सिस्टम को स्थिर करने के लिए P दबाएं।",
-        "Interact": "जैविक इंटरफ़ेस: संस्थाओं या स्क्रैप के साथ बातचीत करने के लिए E दबाएं।",
+        "interact": "जैविक इंटरफ़ेस: संस्थाओं या स्क्रैप के साथ बातचीत करने के लिए E दबाएं।",
         "attack": "सफाई शुरू करें: लोहे के पंजे से हमला करने के लिए J दबाएं।"
     }
 }
