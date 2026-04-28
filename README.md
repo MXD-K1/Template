@@ -37,9 +37,22 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 **What is this game?**
 
 > A game about the war between two groups, nature lovers and machine scientists...
-
 - **Genre**: A TopDown 2D RPG Game (Zelda-Like)
 
+**Details**:
+Humanity has been always evolving, changing, building. They created tools to help them, and those tools slowly evolved to the form known as machines. Fascination turned into obsession, one side sought perfection through steel—redesigning trees, animals, and humans into cold, efficient machines ! But the resistance born from the chaos carried its own madness. A group of people emerged. Those that loved nature, classified themselves as natural beings, and tried to become one with it !The result was the “ Naturonics War ” (Natur for Nature, onics for machine). A conflict where no one is innocent, and the world itself is the victim.
+
+Your Mission is easy, or is it? Wait, do you remember your mission?!
+
+Objective: Support one of the sides and try to reach the end of the war and save the world.
+
+> Note: Currently the game is in development (only a small tutorial is there), you won't see all mentioned details, but stay tuned for updates !🔥
+
+More Info about the Game:
+- This game bas been made for the gamedev.js 2026 jam
+- Participated in the challenges : deploy to wavedash + open source by GitHub.
+- It is intended to work on the game to finish it after the jam.
+- For more see More Information (on itch.io) or see the Docs
 ---
 
 ## Features
